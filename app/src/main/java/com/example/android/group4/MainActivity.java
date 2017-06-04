@@ -13,37 +13,9 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.TextView;
-
 import java.util.Timer;
 import java.util.TimerTask;
-
-import android.icu.util.TimeUnit;
-import android.os.SystemClock;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.widget.ActionBarOverlayLayout;
-import android.util.LayoutDirection;
-import android.view.View;
-import android.widget.RadioGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.view.ViewGroup.LayoutParams;
-import android.widget.RadioButton;
-import android.widget.TextView;
-import android.view.Gravity;
-import android.graphics.Color;
-import android.os.Handler;
-import android.os.Message;
 import java.lang.*;
-import java.util.Timer;
-import java.util.TimerTask;
-import android.view.inputmethod.InputMethodManager;
-import android.content.Context;
-
-import static android.R.color.holo_red_light;
 
 /*
 Author : Aamir Shaikh
@@ -59,15 +31,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         float[] values = new float[] {};
-        String[] vertical_axis = new String[] { "30","20","10","0" };
+        String[] vertical_axis = new String[] { "3000","2000","1000","0" };
         final LinearLayout linear1 = new LinearLayout(this);
         final LinearLayout linear2 = new LinearLayout(this);
         final LinearLayout linear3 = new LinearLayout(this);
         final LinearLayout linear4 = new LinearLayout(this);
 
-        String[] horizontal_axis = new String[] { "0","10", "20", "30", "40"};
+        String[] horizontal_axis = new String[] { "0","1000", "2000", "3000", "4000"};
         linear1.setOrientation(LinearLayout.VERTICAL);
-        newvalues = new float[50];
+        newvalues = new float[30];
         ViewGroup.LayoutParams linLayoutParam = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
 
         linear2.setOrientation(LinearLayout.HORIZONTAL);
@@ -80,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
         linear4.setGravity(Gravity.CENTER);
         ViewGroup.LayoutParams lview4 = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         linear1.addView(linear4);
-
         setContentView(linear1, linLayoutParam);
 
 //Layout 2
@@ -149,24 +120,19 @@ public class MainActivity extends AppCompatActivity {
 
 //Start button
         Button start = new Button(this);
-        Button no = new Button(this);
         Button stop = new Button(this);
 
-        start.setText("START");
+        start.setText("RUN");
         start.setWidth(100);
         start.setHeight(10);
-        //runBtn.setBackgroundColor(getResources().getColor(android.R.color.holo_green_light));
         stop.setText("STOP");
         stop.setWidth(100);
         stop.setHeight(10);
-
-        no.setBackgroundColor(getResources().getColor(android.R.color.transparent));
-
         linear4.addView(start, lview4);
-        linear4.addView(no,lview4);
 
 //Set GraphView parameters - used code provided in Blackboard.
         graphView = new GraphView(this, values, "",horizontal_axis, vertical_axis, GraphView.LINE);
+        //graphView.setBackgroundColor(getResources().getColor(android.R.color.background_dark));
         graphView.setScaleX(1.0f);
         graphView.setScaleY(1.0f);
 
@@ -178,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
 
                 inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
                         InputMethodManager.HIDE_NOT_ALWAYS);
-                for (int i=0;i<50;i++) {
+                for (int i=0;i<30;i++) {
                     newvalues[i] = (float)Math.random()%10;
                 }
                 if(myFlag == false) {
@@ -235,10 +201,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void makeInterval() {
-        for(int i=0;i<49;i++) {
+        for(int i=0;i<29;i++) {
             newvalues[i] = newvalues[i + 1];
         }
-        newvalues[49]=(float)(Math.random() % 10);
+        newvalues[29]=(float)(Math.random() % 10);
     }
 
     public  void stopTimer(){
