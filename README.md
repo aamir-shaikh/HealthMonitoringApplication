@@ -15,3 +15,5 @@ To run this project, you must:
 Source code contains 2 java files:
 * MainActivity.java - The main class contains UI plotting and placement of text fields, boxes and buttons as well as graph plot area. Threads and Timers are implemented to display a continous graph cycle.
 * GraphView.java - This file contains the code for displaying graph (Author: Arno den Hond).
+
+![mc1](https://cloud.githubusercontent.com/assets/19358241/26765284/17971736-4936-11e7-97fc-70322e09065c.PNG)
