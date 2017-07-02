@@ -3,7 +3,7 @@
 
 Mobile Computing Assignment - 1
 
-###**Description** 
+###Description
 A Health Monitoring Application that generates 3 axial continuous graph based on the device's accelerometer data. You can upload the file to any server as well as download a file from the server.
 
 **To run this project:**
@@ -17,5 +17,6 @@ A Health Monitoring Application that generates 3 axial continuous graph based on
 - *GraphView.java* - This file contains the code for displaying graph (Author: Arno den Hond).
 - *DataBaseHelper.java* - Used to perform all CRUD operations for incoming accelerometer data.
 
-###**Screenshot**
-![screenshot](https://user-images.githubusercontent.com/19358241/27766797-6a51ec48-5e9a-11e7-9179-6ec1d808f632.png)
+###Screenshot
+![untitled](https://user-images.githubusercontent.com/19358241/27766802-f74db924-5e9a-11e7-8273-d473de377e32.png)
+
